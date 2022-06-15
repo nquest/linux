@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 // Copyright (C) 2017 Jagan Teki <jteki@openedev.com>
 // Copyright (C) 2017-2018 Samuel Holland <samuel@sholland.org>
+// Copyright (C) 2022 Sergey Moryakov <sergey@nqnet.org>
 
 /dts-v1/;
 
@@ -13,7 +14,7 @@
 
 / {
 	model = "Atol Strike";
-	compatible = "xunlong,orangepi-win", "allwinner,sun50i-a64";
+	compatible = "atol,atol-strike", "allwinner,sun50i-a64";
 
 	aliases {
 		ethernet0 = &emac;
@@ -24,6 +25,7 @@
 		mmc1 = &mmc1;
 		mmc2 = &mmc2;
 	};
+
 	backlight: backlight {
 		compatible = "pwm-backlight";
 		pwms = <&r_pwm 0 500000 PWM_POLARITY_INVERTED>;
@@ -39,7 +41,7 @@
 		compatible = "gpio-leds";
 
 		status {
-			label = "orangepi:green:status";
+			label = "atol:red:power";
 			gpios = <&pio 7 11 GPIO_ACTIVE_HIGH>; /* PH11 */
 		};
 	};
@@ -201,6 +203,8 @@
 		interrupt-names = "host-wake";
 	};
 };
+
+/* eMMC 8GTFR */
 &mmc2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&mmc2_pins>;
@@ -405,6 +409,7 @@
 	};
 };
 
+/* RS232 Port */
 &uart2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart2_pins>;
