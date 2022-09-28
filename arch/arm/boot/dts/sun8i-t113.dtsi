@@ -786,7 +786,8 @@
 
 		spi0: spi@4025000 {
 			compatible = "allwinner,sun20i-d1-spi",
-				     "allwinner,sun50i-r329-spi";
+				     "allwinner,sun50i-r329-spi",
+						"allwinner,sun8i-h3-spi";
 			reg = <0x4025000 0x1000>;
 			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
 			clocks = <&ccu CLK_BUS_SPI0>, <&ccu CLK_SPI0>;
@@ -803,7 +804,8 @@
 		spi1: spi@4026000 {
 			compatible = "allwinner,sun20i-d1-spi-dbi",
 				     "allwinner,sun50i-r329-spi-dbi",
-				     "allwinner,sun50i-r329-spi";
+				     "allwinner,sun50i-r329-spi",
+					 "allwinner,sun8i-h3-spi";
 			reg = <0x4026000 0x1000>;
 			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
 			clocks = <&ccu CLK_BUS_SPI1>, <&ccu CLK_SPI1>;
