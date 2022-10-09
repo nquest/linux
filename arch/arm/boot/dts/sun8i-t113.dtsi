@@ -29,25 +29,25 @@
 		#clock-cells = <0>;
 	};
 
-        cpus {
-                enable-method = "allwinner,sun8iw20p1";
-                #address-cells = <1>;
-                #size-cells = <0>;
+	cpus {
+			enable-method = "allwinner,sun8iw20p1";
+			#address-cells = <1>;
+			#size-cells = <0>;
 
-                cpu0: cpu@0 {
-                        device_type = "cpu";
-                        compatible = "arm,cortex-a7","arm,armv7";
-                        reg = <0x0>;
-                        clocks = <&ccu CLK_CPUX>;
-                };
+			cpu0: cpu@0 {
+					device_type = "cpu";
+					compatible = "arm,cortex-a7","arm,armv7";
+					reg = <0x0>;
+					clocks = <&ccu CLK_CPUX>;
+			};
 
-                cpu1: cpu@1 {
-                        device_type = "cpu";
-                        compatible = "arm,cortex-a7","arm,armv7";
-                        reg = <0x1>;
-                        clocks = <&ccu CLK_CPUX>;
-                };
-        };
+			cpu1: cpu@1 {
+					device_type = "cpu";
+					compatible = "arm,cortex-a7","arm,armv7";
+					reg = <0x1>;
+					clocks = <&ccu CLK_CPUX>;
+			};
+	};
 
 	timer_arch {
 		compatible = "arm,armv7-timer";
@@ -449,7 +449,7 @@
 			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
 			clocks = <&osc24M>, <&rtc CLK_OSC32K>;
 			clock-names = "hosc", "losc";
-			status = "reserved";
+			// status = "reserved";
 		};
 
 		uart0: serial@2500000 {
@@ -1255,16 +1255,16 @@
 			#clock-cells = <1>;
 		};
 
-                gic: interrupt-controller@3021000 {
-                        compatible = "arm,gic-400";
-                        reg = <0x03021000 0x1000>,
-                              <0x03022000 0x2000>,
-                              <0x03024000 0x2000>,
-                              <0x03026000 0x2000>;
-                        interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
-                        interrupt-controller;
-                        #interrupt-cells = <3>;
-                };
+		gic: interrupt-controller@3021000 {
+				compatible = "arm,gic-400";
+				reg = <0x03021000 0x1000>,
+						<0x03022000 0x2000>,
+						<0x03024000 0x2000>,
+						<0x03026000 0x2000>;
+				interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
+				interrupt-controller;
+				#interrupt-cells = <3>;
+		};
 
 /*
 		can0: can@02504000 {
